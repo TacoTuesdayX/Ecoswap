@@ -1,0 +1,45 @@
+{
+    "name": "Eco_ext",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "icons": {
+        
+    },
+
+    "options_page": "./options.html",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts":[
+        {
+            "matches":["<all_urls>"],
+            "js":["jquery.js", "foreground.js","popup.js"],
+            "css":["styles.css"]
+        }
+    ],
+    "background": {
+        
+        
+        "scripts":["background.js"]
+        
+    },
+
+    "web_accessible_resources": [
+    "styles/contentscript.css",
+        "fonts/Catamaran-Light.ttf"
+        ],
+
+ 
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab",
+        "cookies",
+        "storage",
+        "<all_urls>",
+        "https://yelp.com/",
+        "http://localhost/*"
+    ]
+
+    
+}
