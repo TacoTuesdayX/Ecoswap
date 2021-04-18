@@ -73,7 +73,7 @@ const start = async (url) => {
 }
 
 const getSimilarLocal = (tags) => {
-  var buildURL = 'https://openapi.etsy.com/v2/listings/active?api_key=9jqzoscw52ee4lyuu0txbwp1&tags='+tags;
+  var buildURL = 'https://openapi.etsy.com/v2/listings/active?api_key=9jqzoscw52ee4lyuu0txbwp1&tags='+tags+'&limit=3';
 
   var config = {
     method: 'get',
