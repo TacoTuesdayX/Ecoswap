@@ -11,13 +11,19 @@ We are always open to contributors! Fork from the main branch linked at the top 
 Original Team:
 
 Logan - https://github.com/TacoTuesdayX
+
 Anjali - https://github.com/a8-s
+
 Luke - https://github.com/Luke503
 
 TODO:
+
 -Design an automated or user inputed way of determining location for Ebay, Etsy, and Craigslist invocations. 
+
 -Give up hopes on a OfferUp/LetGo open search API, and design one ourselves.
+
 -clean up some of the exension UI
+
 -dynamically serve parsed JSON from our backend onto our EcoSwap site.
 
 Folder Organization:  Beach Hack: Front End and Node Server, Eco_Ext: Chrome Extension 
