@@ -67,12 +67,12 @@ const start = async (url) => {
   console.log(valid_tags[3]);
 
 
-  getSimilarLocal(""+valid_tags[0] + " " + valid_tags[1]);
+  getEtsyPosts(""+valid_tags[0] + " " + valid_tags[1]);
   //then pass these selected tags to getSimilar.js which will return etsy posts
 
 }
 
-const getSimilarLocal = (tags) => {
+const getEtsyPosts = (tags) => {
   var buildURL = 'https://openapi.etsy.com/v2/listings/active?api_key=9jqzoscw52ee4lyuu0txbwp1&tags='+tags+'&limit=3';
 
   var config = {
@@ -80,6 +80,42 @@ const getSimilarLocal = (tags) => {
     url: buildURL,
     headers: {
       'Cookie': 'uaid=g8hJSUHZRzeT3lOTxhRectwaMYBjZACChOrA3TC6Wqk0MTNFyUopNdzMNLHSqMo9yjS9MNgtrSTesyLEv9LUKMAlXKmWAQA.; user_prefs=4mxmQJscOfI9x5Q3g682RILVz9pjZACChOrA3TA6Oq80J0eHPCKWAQA.'
+    }
+  };
+
+  //axios call, edit then statement to change response
+  axios(config)
+  .then(function (response) {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+/* Craigslist itself doesn't have an open API, thus we're
+ * utilizing a third party API provided by user Aiden Gignac
+ * from rapidapi.com
+ *
+ * credit: https://rapidapi.com/user/aidangig
+ *
+ */
+const getCLPosts = (tags) => {
+
+  var config = {
+    method: 'get',
+    url: 'https://craigslist-search.p.rapidapi.com/q=&city&zipcode&miles',
+
+    //
+    params: {
+      q: 'tags',
+      city: 'San Diego', //for reference, eventually user entered/sourced
+      miles: '10',
+      zipcode: '92122' //also for reference
+    },
+    headers: {
+      'x-rapidapi-key': '2c5846855cmshb349cf6326281b5p133e2ajsndbd6cd336da6',
+      'x-rapidapi-host': 'craigslist-search.p.rapidapi.com'
     }
   };
 
